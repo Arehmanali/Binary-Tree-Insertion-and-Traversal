@@ -2,10 +2,10 @@
 
 class cNode
 {
-	int data;
+	int data;		// data variable for node class
 public:
-	cNode* rightChild;
-	cNode* leftChild;
+	cNode* rightChild;		// point the address of right Child
+	cNode* leftChild;		// point the address of left Child
 	cNode();
 	cNode(int d);
 	void setData(int d);
