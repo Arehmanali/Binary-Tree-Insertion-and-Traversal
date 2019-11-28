@@ -2,6 +2,7 @@
 #include<iostream>
 using namespace std;
 
+/* default constructor */
 cTree::cTree()
 {
 	root = NULL;
