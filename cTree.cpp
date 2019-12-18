@@ -9,6 +9,7 @@ cTree::cTree()
 	count = 0;
 }
 
+/*parametric constructor*/
 cTree::cTree(cNode*& ptr)
 {
 	root = ptr;
