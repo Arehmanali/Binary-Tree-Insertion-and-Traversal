@@ -34,6 +34,9 @@ int main()
 	t.deleteNode(t.getRoot(),22);
 	cout << "Tree After Deletion of Node:";
 	t.printInOrder(t.getRoot());
+	cout << endl;
+	cout << "The Minimum Node in Tree is: " << t.getMinNode()->getData() << endl;
+	cout << "The Maximum Node in Tree is: " << t.getMaxNode()->getData() << endl;
 	return 0;
 	system("pause");
 }
