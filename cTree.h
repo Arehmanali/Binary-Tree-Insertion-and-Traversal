@@ -12,7 +12,10 @@ public:
 	void printPreOrder(cNode* ptr);
 	void printPostOrder(cNode* ptr);
 	void printInOrder(cNode* ptr);
+	void printReverseTree(cNode* ptr);
 	cNode* getRoot()const;
+	int getMaxDegree();
+	int getLevel();
 	~cTree();
 };
 
