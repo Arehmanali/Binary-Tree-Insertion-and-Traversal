@@ -16,6 +16,9 @@ public:
 	cNode* getRoot()const;
 	int getMaxDegree();
 	int getLevel();
+	cNode* getMinNode()const;
+	cNode* getMaxNode()const;
+	cNode* deleteNode(cNode* root,int data);
 	~cTree();
 };
 
