@@ -25,10 +25,15 @@ int main()
 	cout << "\n";
 	cout << "\nTree after postOrder Traversal:";
 	t.printPostOrder(t.getRoot());
+	cout << "\nTree after Reverse Order Traversal:";
+	t.printReverseTree(t.getRoot());
 	cout << "\n";
 	cout << "Root of The Tree is: " << t.getRoot()->getData() << endl;
 	cout << "Maximum Degree of the Tree is: " << t.getMaxDegree() << endl;
 	cout << "Level of the Tree is: " << t.getLevel() << endl;
+	t.deleteNode(t.getRoot(),22);
+	cout << "Tree After Deletion of Node:";
+	t.printInOrder(t.getRoot());
 	return 0;
 	system("pause");
 }
