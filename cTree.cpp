@@ -93,7 +93,7 @@ void cTree::printReverseTree(cNode* ptr)
 
 cNode* cTree::getRoot()const
 {
-	return this->root;
+	return this ->root;
 }
 
 int cTree::getMaxDegree()
@@ -120,17 +120,71 @@ void getDegree(cNode* root, int& deg)
 int cTree::getLevel()
 {
 	void getlvl(cNode * root, int& lvl);
-	int level = 0;
+	int level = -1;
 	getlvl(root, level);
 	return level;
+}
+
+cNode* cTree::getMinNode() const
+{
+	cNode* ptr = root;
+	while (ptr->leftChild != NULL)
+	{
+		ptr = ptr->leftChild;
+	}
+	return ptr;
+}
+
+cNode* cTree::getMaxNode() const
+{
+	cNode* ptr = root;
+	while (ptr->rightChild != NULL)
+	{
+		ptr = ptr->rightChild;
+	}
+	return ptr;
+}
+
+cNode* cTree::deleteNode(cNode* root,int data)
+{
+	if (!root)cout << "Tree is Empty!\n";
+	if (data < root->getData())
+	{
+		root->leftChild = deleteNode(root->leftChild, data);
+	}
+	else if (data > root->getData())
+	{
+		root->rightChild = deleteNode(root->rightChild, data);
+	}
+	else
+	{
+		cNode* ptr;
+		if (root->leftChild == NULL)
+		{
+			 ptr = root->rightChild;
+			free(root);
+			return ptr;
+		}
+		else if (root->rightChild == NULL)
+		{
+			ptr = root->leftChild;
+			free(root);
+			return ptr;
+		}
+		ptr = getMinNode();
+		root->setData(ptr->getData());
+		root->rightChild = deleteNode(root->rightChild, ptr->getData());
+	}
+	return root;
 }
 
 void getlvl(cNode* root, int& lvl)
 {
 	if (root)
 	{
-		getlvl(root->leftChild, lvl);
-		getlvl(root->rightChild, lvl);
+			if (root->leftChild || root->rightChild)lvl++;
+			getlvl(root->leftChild, lvl);
+			getlvl(root->rightChild, lvl);
 	}
 }
 
