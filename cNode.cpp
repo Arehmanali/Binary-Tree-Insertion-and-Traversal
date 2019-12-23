@@ -30,7 +30,7 @@ int cNode::getData()
 	return this->data;
 }
 
-/* print function for printing the values of node*/
+/* print function for printing the values of  node*/
 void cNode::print() const
 {
 	cout << "\n Data is:" << data;
