@@ -2,7 +2,7 @@
 #include<iostream>
 using namespace std;
 
-/* Default constructor */
+/* Default constructor  */
 cNode::cNode()
 {
 	data = 0;
