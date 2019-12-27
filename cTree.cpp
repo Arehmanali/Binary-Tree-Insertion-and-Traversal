@@ -18,6 +18,7 @@ cTree::cTree(cNode*& ptr)
 	count = 1;
 }
 
+/* insert function for new nodes */
 cTree& cTree::insert(cNode*& ptr)
 {
 	if (!root)
@@ -60,7 +61,7 @@ cTree& cTree::insert(cNode*& ptr)
 	return *this;
 }
 
-
+/* print in pre order tree */
 void cTree::printPreOrder(cNode* ptr)
 {
 	if (!ptr) return;
@@ -69,6 +70,7 @@ void cTree::printPreOrder(cNode* ptr)
 	printPreOrder(ptr->rightChild);
 }
 
+/*print the nodes in post order */
 void cTree::printPostOrder(cNode* ptr)
 {
 	if (!ptr)return;
@@ -77,6 +79,7 @@ void cTree::printPostOrder(cNode* ptr)
 	cout << ptr->getData() << " ";
 }
 
+/* print the nodes of tree in inoder */ 
 void cTree::printInOrder(cNode* ptr)
 {
 	if (!ptr)return;
