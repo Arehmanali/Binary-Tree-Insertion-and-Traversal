@@ -88,6 +88,7 @@ void cTree::printInOrder(cNode* ptr)
 	printInOrder(ptr->rightChild);
 }
 
+/* print tree in reverse order format */
 void cTree::printReverseTree(cNode* ptr)
 {
 	if (!ptr)return;
@@ -96,6 +97,7 @@ void cTree::printReverseTree(cNode* ptr)
 	printReverseTree(ptr->leftChild);
 }
 
+/* getter for root of the tree */
 cNode* cTree::getRoot()const
 {
 	return this ->root;
