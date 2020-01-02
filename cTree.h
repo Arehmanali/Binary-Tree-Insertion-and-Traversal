@@ -14,7 +14,7 @@ public:
 	void printInOrder(cNode* ptr);
 	void printReverseTree(cNode* ptr);
 	cNode* getRoot()const;
-	cBinaryTree(const cBinaryTree& src);
+	cTree(const cTree& src);
 	int getMaxDegree();
 	int getLevel();
 	cNode* getMinNode()const;
