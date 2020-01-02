@@ -126,10 +126,22 @@ void getDegree(cNode* root, int& deg)
 
 int cTree::getLevel()
 {
-	void getlvl(cNode * root, int& lvl);
-	int level = -1;
-	getlvl(root, level);
-	return level;
+	void getLvl(cNode * root, int& lvl);
+	int level1 = 0, level2 = 0;
+	getLvl(root->leftChild, level1);
+	getLvl(root->rightChild, level2);  
+	if (level1 > level2)return level1-1;
+	else return level2-1;
+}
+
+void getLvl(cNode* root, int& lvl)
+{
+	if (root)
+	{
+		getLvl(root->leftChild, lvl);
+		getLvl(root->rightChild, lvl);
+		lvl++;
+	}
 }
 
 cNode* cTree::getMinNode() const
@@ -185,13 +197,22 @@ cNode* cTree::deleteNode(cNode* root,int data)
 	return root;
 }
 
-void getlvl(cNode* root, int& lvl)
+cTree::cTree(const cTree& src)
 {
-	if (root)
+	root = src.root;
+	count = src.count;
+	if (count > 0)
 	{
-			if (root->leftChild || root->rightChild)lvl++;
-			getlvl(root->leftChild, lvl);
-			getlvl(root->rightChild, lvl);
+		cNode* sptr, *dptr;
+		dptr = root = new cNode(*src.root);
+		sptr = src.root->rightChild;
+		while (sptr)
+		{
+			dptr->rightChild = new cNode(*sptr);
+			dptr = dptr->rightChild;
+			sptr = sptr->rightChild;
+		}
+		dptr->rightChild = NULL;
 	}
 }
 
